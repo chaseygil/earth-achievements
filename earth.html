@@ -13,7 +13,8 @@
             font-family: 'Parkinsans', sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(to bottom, #ffffff, #cccccc);
+            background: #121212; /* Dark background */
+            color: #e0e0e0; /* Light text for contrast */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -22,30 +23,32 @@
         }
 
         .top-bar {
-            background-color: white;
-            width: 100%;
-            padding: 10px 0;
+            background-color: #1e1e1e; /* Darker top bar */
+            width: calc(100%);
+            padding: 10px 20px;
             display: flex;
             align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            justify-content: space-between;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
             position: fixed;
             top: 0;
             left: 0;
             z-index: 10;
+            box-sizing: border-box;
         }
 
         .header {
             display: flex;
-            align-items: center;
-            justify-content: center;
+            align-items: center; /* Ensure vertical alignment */
+            justify-content: flex-start; /* Align to the left */
+            gap: 10px; /* Space between logo and text */
         }
 
             .header h1 {
                 font-size: 28px;
                 margin-left: 10px;
                 font-weight: bold;
+                color: #e0e0e0; /* Light text color */
             }
 
             .header img {
@@ -53,10 +56,34 @@
                 height: auto;
             }
 
-        .made-by {
-            font-size: 12px;
-            color: #555;
-            margin-top: 10px;
+        .progress-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex: 1;
+            justify-content: flex-end;
+        }
+
+        .progress-text {
+            font-size: 14px;
+            font-weight: bold;
+            color: #e0e0e0; /* Light text color */
+        }
+
+        .progress-bar {
+            width: 150px;
+            height: 10px;
+            background-color: #333; /* Dark background for progress bar */
+            border-radius: 5px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background-color: #4caf50;
+            width: 0;
+            transition: width 0.3s ease;
         }
 
         .container {
@@ -70,21 +97,27 @@
         }
 
         .achievement {
-            border: 2px solid #333;
+            border: 0px solid #d9d9d9; /* Lighter border for dark theme */
             border-radius: 8px;
-            background-color: #fff;
+            background-color: #1e1e1e; /* Dark background for each achievement */
             padding: 15px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Slight shadow for depth */
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.2s ease;
             width: 100%;
             max-width: 300px;
             position: relative;
+            color: #e0e0e0; /* Light text for each achievement */
         }
+
+            .achievement:hover {
+                transform: scale(1.01);
+                background-color: #333; /* Slightly darker on hover */
+            }
 
             .achievement img {
                 max-width: 100%;
@@ -95,10 +128,12 @@
 
             .achievement h3 {
                 margin: 10px 0 5px;
+                color: #e0e0e0; /* Light text for achievement name */
             }
 
             .achievement p {
                 margin: 5px 0;
+                color: #b0b0b0; /* Lighter color for description */
             }
 
         .done-text {
@@ -107,9 +142,27 @@
             right: 10px;
             font-size: 12px;
             font-weight: bold;
-            color: black;
+            color: #00e676; /* Green color for DONE text */
             display: none;
         }
+
+        /* Button styles */
+        .complete-btn {
+            background-color: #808080; /* Grey background when disabled */
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: not-allowed;
+            transition: background-color 0.3s ease, opacity 0.3s ease;
+            opacity: 0.5; /* Make it look faded */
+        }
+
+            .complete-btn.enabled {
+                cursor: pointer;
+                background-color: #388e3c;
+                opacity: 1; /* Restore opacity when enabled */
+            }
     </style>
 </head>
 <body>
@@ -119,7 +172,14 @@
             <img src="https://i.imgur.com/lVcDGpC.png" alt="Earth Achievements Logo">
             <h1>Earth Achievements</h1>
         </div>
-        <div class="made-by">made by chase</div>
+        <div class="progress-container">
+            <!-- Button added here -->
+            <button id="complete-btn" class="complete-btn" disabled>Complete Earth..</button>
+            <span class="progress-text">0/0</span>
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+            </div>
+        </div>
     </div>
 
     <div class="container"></div>
@@ -131,32 +191,53 @@
                 description: "testing, testing...",
                 reward: "10 vbucks",
                 image: "https://via.placeholder.com/300",
-                color: "#FFDDC1",
+                color: "#5e3d2d",  /* Much darker gray */
             },
             {
                 name: "test2",
                 description: "testing, testing...",
                 reward: "1 liver",
                 image: "https://via.placeholder.com/300",
-                color: "#C1FFD7",
+                color: "#324432",  /* Very dark green */
             },
             {
                 name: "test3",
                 description: "testing, testing...",
                 reward: "100 Coins",
                 image: "https://via.placeholder.com/300",
-                color: "#C1D7FF",
+                color: "#2a2f4f",  /* Very dark blue */
             },
             {
                 name: "test4",
                 description: "testing, testing...",
                 reward: "23409283049825 happy faces",
                 image: "https://via.placeholder.com/300",
-                color: "#FFD1F0",
+                color: "#4c244a",  /* Very dark purple */
             },
         ];
 
         const container = document.querySelector(".container");
+        const progressText = document.querySelector(".progress-text");
+        const progressFill = document.querySelector(".progress-fill");
+        const completeBtn = document.querySelector("#complete-btn");
+
+        let completedAchievements = 0;
+
+        function updateProgress() {
+            progressText.textContent = `${completedAchievements}/${achievements.length}`;
+            const percentage = (completedAchievements / achievements.length) * 100;
+            progressFill.style.width = percentage + "%";
+
+            // Enable or disable the button based on progress
+            if (percentage === 100) {
+                completeBtn.classList.add("enabled");
+                completeBtn.disabled = false;
+            } else {
+                completeBtn.classList.remove("enabled");
+                completeBtn.disabled = true;
+            }
+        }
+
         achievements.forEach(achievement => {
             const box = document.createElement("div");
             box.className = "achievement";
@@ -187,17 +268,28 @@
             box.appendChild(doneText);
 
             box.addEventListener("click", () => {
-                if (box.style.backgroundColor === "rgb(128, 128, 128)") {
-                    box.style.backgroundColor = box.dataset.originalColor;
+                if (doneText.style.display === "block") {
+                    box.style.backgroundColor = achievement.color; // Reset color
                     doneText.style.display = "none";
+                    completedAchievements--;
                 } else {
-                    box.style.backgroundColor = "#808080";
+                    box.style.backgroundColor = "gray"; // Mark as done
                     doneText.style.display = "block";
+                    completedAchievements++;
                 }
+                updateProgress();
             });
 
             container.appendChild(box);
         });
+
+        completeBtn.addEventListener("click", () => {
+            if (completeBtn.disabled) return; // Do nothing if the button is disabled
+            window.location.href = "https://www.youtube.com/watch?v=ll_GFit5Oww"; // Replace with your desired URL
+        });
+
+        updateProgress();
     </script>
+
 </body>
 </html>

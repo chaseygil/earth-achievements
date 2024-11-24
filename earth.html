@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Earth Achievements</title>
-    <link rel="icon" type="image/png" href="https://i.imgur.com/lVcDGpC.png"> <!-- replace w/ ur real icon url -->
+    <link rel="icon" type="image/png" href="https://i.imgur.com/lVcDGpC.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&display=swap" rel="stylesheet">
@@ -13,24 +13,23 @@
             font-family: 'Parkinsans', sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(to bottom, #ffffff, #cccccc); /* Gradient background */
+            background: linear-gradient(to bottom, #ffffff, #cccccc);
             display: flex;
             flex-direction: column;
-            align-items: center; /* Centers the content horizontally */
-            padding-top: 135px; /* Adds space at the top to prevent obstruction by the fixed bar */
+            align-items: center;
+            padding-top: 135px;
             padding-bottom: 25px;
         }
 
-        /* White bar at the top */
         .top-bar {
             background-color: white;
             width: 100%;
-            padding: 10px 0; /* Reduced height */
+            padding: 10px 0;
             display: flex;
             align-items: center;
             justify-content: center;
-            flex-direction: column; /* allows for stacked elements */
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* optional shadow for better separation */
+            flex-direction: column;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             position: fixed;
             top: 0;
             left: 0;
@@ -44,31 +43,30 @@
         }
 
             .header h1 {
-                font-size: 28px; /* Reduced title size */
+                font-size: 28px;
                 margin-left: 10px;
                 font-weight: bold;
             }
 
             .header img {
-                width: 40px; /* Adjust logo size smaller */
+                width: 40px;
                 height: auto;
             }
 
         .made-by {
-            font-size: 12px; /* Tiny font size */
-            color: #555; /* Slightly darker gray */
-            margin-top: 10px; /* Small space below the title */
+            font-size: 12px;
+            color: #555;
+            margin-top: 10px;
         }
 
-        /* Container for achievements */
         .container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
             max-width: 1000px;
-            justify-items: center; /* Ensures achievements are centered within the grid */
+            justify-items: center;
             width: 100%;
-            margin: 0 auto; /* Ensures the container is centered */
+            margin: 0 auto;
         }
 
         .achievement {
@@ -84,8 +82,8 @@
             cursor: pointer;
             transition: background-color 0.3s ease;
             width: 100%;
-            max-width: 300px; /* Ensures the box doesn't get too wide */
-            position: relative; /* Added to position the [DONE] text */
+            max-width: 300px;
+            position: relative;
         }
 
             .achievement img {
@@ -103,117 +101,101 @@
                 margin: 5px 0;
             }
 
-        /* Style for the [DONE] text */
         .done-text {
             position: absolute;
             bottom: 10px;
             right: 10px;
             font-size: 12px;
-            font-weight: bold; /* Make it bold */
-            color: black; /* Make it black */
+            font-weight: bold;
+            color: black;
             display: none;
         }
     </style>
 </head>
 <body>
 
-    <!-- White bar with title, logo, and "made by chase" -->
     <div class="top-bar">
         <div class="header">
-            <img src="https://i.imgur.com/lVcDGpC.png" alt="Earth Achievements Logo"> <!-- Replace with actual logo URL -->
+            <img src="https://i.imgur.com/lVcDGpC.png" alt="Earth Achievements Logo">
             <h1>Earth Achievements</h1>
         </div>
         <div class="made-by">made by chase</div>
     </div>
 
-    <!-- Achievements container -->
     <div class="container"></div>
 
     <script>
-        // da table of achievements w/ custom colors
         const achievements = [
             {
-                name: "First Step",
-                description: "Complete your first task.",
-                reward: "10 Coins",
+                name: "test1",
+                description: "testing, testing...",
+                reward: "10 vbucks",
                 image: "https://via.placeholder.com/300",
-                color: "#FFDDC1", // light peach
+                color: "#FFDDC1",
             },
             {
-                name: "Big Win",
-                description: "Achieve a major milestone.",
-                reward: "50 Coins",
+                name: "test2",
+                description: "testing, testing...",
+                reward: "1 liver",
                 image: "https://via.placeholder.com/300",
-                color: "#C1FFD7", // light green
+                color: "#C1FFD7",
             },
             {
-                name: "Champion",
-                description: "Win 10 matches.",
+                name: "test3",
+                description: "testing, testing...",
                 reward: "100 Coins",
                 image: "https://via.placeholder.com/300",
-                color: "#C1D7FF", // light blue
+                color: "#C1D7FF",
             },
             {
-                name: "Master",
-                description: "Reach level 50.",
-                reward: "200 Coins",
+                name: "test4",
+                description: "testing, testing...",
+                reward: "23409283049825 happy faces",
                 image: "https://via.placeholder.com/300",
-                color: "#FFD1F0", // light pink
+                color: "#FFD1F0",
             },
         ];
 
-        // dynamically build da list
         const container = document.querySelector(".container");
         achievements.forEach(achievement => {
-            // create the container div
             const box = document.createElement("div");
             box.className = "achievement";
-            box.style.backgroundColor = achievement.color; // set custom color
+            box.style.backgroundColor = achievement.color;
 
-            // store the original color
             box.dataset.originalColor = achievement.color;
 
-            // add da image
             const img = document.createElement("img");
             img.src = achievement.image;
             img.alt = achievement.name;
             box.appendChild(img);
 
-            // add da title
             const title = document.createElement("h3");
             title.textContent = achievement.name;
             box.appendChild(title);
 
-            // add da description
             const desc = document.createElement("p");
             desc.textContent = achievement.description;
             box.appendChild(desc);
 
-            // add da reward
             const reward = document.createElement("p");
             reward.textContent = "Reward: " + achievement.reward;
             box.appendChild(reward);
 
-            // create and add the [DONE] text
             const doneText = document.createElement("span");
             doneText.className = "done-text";
             doneText.textContent = "[DONE]";
             box.appendChild(doneText);
 
-            // toggle the background color when clicked
             box.addEventListener("click", () => {
                 if (box.style.backgroundColor === "rgb(128, 128, 128)") {
-                    // back to original color
                     box.style.backgroundColor = box.dataset.originalColor;
-                    doneText.style.display = "none"; // hide [DONE] when color is restored
+                    doneText.style.display = "none";
                 } else {
-                    // darken the color
                     box.style.backgroundColor = "#808080";
-                    doneText.style.display = "block"; // show [DONE] when greyed out
+                    doneText.style.display = "block";
                 }
             });
 
-            // toss it into da container
             container.appendChild(box);
         });
     </script>

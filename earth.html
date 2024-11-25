@@ -153,10 +153,12 @@
             padding: 10px 20px;
             border-radius: 5px;
             font-size: 14px;
+            font-family: 'Parkinsans', sans-serif; /* set the font here */
             cursor: not-allowed;
-            transition: background-color 0.3s ease, opacity 0.3s ease;
+            transition: background-color 1s ease, opacity 1s ease;
             opacity: 0.5; /* Make it look faded */
         }
+
 
             .complete-btn.enabled {
                 cursor: pointer;
@@ -187,33 +189,132 @@
     <script>
         const achievements = [
             {
-                name: "test1",
-                description: "testing, testing...",
+                name: "wow, lungs!!",
+                description: "take your first breath",
                 reward: "10 vbucks",
                 image: "https://via.placeholder.com/300",
-                color: "#5e3d2d",  /* Much darker gray */
+                color: "#324432",  /* Much darker gray */
             },
             {
-                name: "test2",
-                description: "testing, testing...",
+                name: "depth perception",
+                description: "open your eyes for the first time",
+                reward: "inevitable death",
+                image: "https://via.placeholder.com/300",
+                color: "#2a2f4f",  /* Very dark green */
+            },
+            {
+                name: "the fuck, legs??",
+                description: "learn to move around on your own",
+                reward: "+20 speed",
+                image: "https://via.placeholder.com/300",
+                color: "#324432",  /* Very dark blue */
+            },
+            {
+                name: "'goo'",
+                description: "say your first word",
+                reward: "10 Earth Coins",
+                image: "https://via.placeholder.com/300",
+                color: "#2a2f4f",  /* Much darker gray */
+            },
+            {
+                name: "gulp",
+                description: "eat something solid without choking violently",
                 reward: "1 liver",
                 image: "https://via.placeholder.com/300",
                 color: "#324432",  /* Very dark green */
             },
             {
-                name: "test3",
-                description: "testing, testing...",
-                reward: "100 Coins",
+                name: "pearly whites",
+                description: "brush your teeth for the first time",
+                reward: "50 Coins",
                 image: "https://via.placeholder.com/300",
                 color: "#2a2f4f",  /* Very dark blue */
             },
             {
-                name: "test4",
-                description: "testing, testing...",
-                reward: "23409283049825 happy faces",
+                name: "hey, theres more of them",
+                description: "grow all of your baby teeth",
+                reward: "100 Coins",
                 image: "https://via.placeholder.com/300",
-                color: "#4c244a",  /* Very dark purple */
+                color: "#324432",  /* Very dark purple */
             },
+            {
+                name: "ok now they're dying",
+                description: "lose your first tooth",
+                reward: "10 vbucks",
+                image: "https://via.placeholder.com/300",
+                color: "#2a2f4f",  /* Much darker gray */
+            },
+            {
+                name: "Lights Out",
+                description: "sleep without a night light",
+                reward: "50 Coins",
+                image: "https://via.placeholder.com/300",
+                color: "#324432",  /* Very dark green */
+            },
+            {
+                name: "hey think fast",
+                description: "dodge a flying object",
+                reward: "10 Earth Points",
+                image: "https://via.placeholder.com/300",
+                color: "#2a2f4f",  /* Very dark purple */
+            },
+            {
+                name: "clean eater",
+                description: "finish a meal without spilling it",
+                reward: "50 vbucks",
+                image: "https://via.placeholder.com/300",
+                color: "#324432",  /* Very dark green */
+            },
+            {
+                name: "it's just gravity dude",
+                description: "trip over absolutely nothing",
+                reward: "100 Coins",
+                image: "https://via.placeholder.com/300",
+                color: "#2a2f4f",  /* Very dark purple */
+            },
+            {
+                name: "dogs are nice, and cats actually",
+                description: "pet an animal without fear",
+                reward: "10 vbucks",
+                image: "https://via.placeholder.com/300",
+                color: "#324432",  /* Very dark blue */
+            },
+            {
+                name: "make-a-wish",
+                description: "spot a shootin star",
+                reward: "100 Coins",
+                image: "https://via.placeholder.com/300",
+                color: "#2a2f4f",  /* Very dark purple */
+            },
+            {
+                name: "psychopath route",
+                description: "create your first human centipede",
+                reward: "a movie based on you",
+                image: "https://via.placeholder.com/300",
+                color: "#324432",  /* Very dark purple */
+            },
+            {
+                name: "boss baby",
+                description: "drop a bit of tequila into a babys baby bottle",
+                reward: "a realistic doll",
+                image: "https://via.placeholder.com/300",
+                color: "#2a2f4f",  /* Very dark purple */
+            },
+            {
+                name: "5 Sword Technique",
+                description: "tape a sword to your willy",
+                reward: "possibly a papercut",
+                image: "https://via.placeholder.com/300",
+                color: "#324432",  /* Very dark purple */
+            },
+            {
+                name: "hot-shot",
+                description: "shoot a snot rocket into the hotel receptionist ladies eye",
+                reward: "75XP",
+                image: "https://via.placeholder.com/300",
+                color: "#2a2f4f",  /* Very dark purple */
+            },
+
         ];
 
         const container = document.querySelector(".container");
